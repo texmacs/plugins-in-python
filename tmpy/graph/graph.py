@@ -12,7 +12,8 @@ import os
 import platform
 import shutil
 import time
-from tmpy.protocol import *
+
+from tmpy.protocol import DATA_COMMAND, flush_prompt, flush_verbatim
 
 
 class Graph(object):
@@ -32,8 +33,8 @@ class Graph(object):
             if len(x) == 0:
                 pass
             else:
-                flush_verbatim (x + "\n")
-                flush_prompt (self.name + "] ")
+                flush_verbatim(x + "\n")
+                flush_prompt(self.name + "] ")
 
     def available(self):
         return shutil.which(self.name) is not None
@@ -44,15 +45,15 @@ class Graph(object):
         self.output = self.default_output
 
     def apply_magic(self, magic_line):
-        args = list(filter(lambda x: len(x)!=0, magic_line.split(" ")[1:]))
-        while (len(args) > 1):
+        args = list(filter(lambda x: len(x) != 0, magic_line.split(" ")[1:]))
+        while len(args) > 1:
             option = args[0]
             value = args[1]
-            if (option == '-width'):
+            if option == "-width":
                 self.width = value
-            elif (option == '-height'):
+            elif option == "-height":
                 self.height = value
-            elif (option == '-output'):
+            elif option == "-output":
                 self.output = value
             else:
                 pass
@@ -72,11 +73,11 @@ class Graph(object):
 
     def eval(self, code):
         self.before_evaluate()
-        if (code.startswith("%")):
+        if code.startswith("%"):
             magic_lines = code.split("\n")
             magic_line = magic_lines[0]
             self.apply_magic(magic_line)
-            code = '\n'.join(magic_lines[1:])
+            code = "\n".join(magic_lines[1:])
         self.evaluate(code)
         time.sleep(1)
         self.after_evaluate()
@@ -95,18 +96,18 @@ class Graph(object):
                 while line != "<EOF>":
                     line = input()
                     lines.append(line)
-                text = '\n'.join(lines[:-1])
+                text = "\n".join(lines[:-1])
                 self.eval(text)
 
     def get_tmp_dir(self):
         dir = "graph_" + self.name + "_" + str(os.getpid())
-        if (platform.system() == "Windows"):
+        if platform.system() == "Windows":
             return os.getenv("TEXMACS_HOME_PATH") + "\\system\\tmp\\" + dir + "\\"
         else:
             return os.getenv("TEXMACS_HOME_PATH") + "/system/tmp/" + dir + "/"
 
     def remove_tmp_dir(self):
-        if (platform.system() != "Windows"):
+        if platform.system() != "Windows":
             os.rmdir(self.get_tmp_dir())
 
     def clean_tmp_dir(self):
@@ -131,16 +132,10 @@ class Graph(object):
         return self.get_tmp_dir() + self.name + ".svg"
 
     def get_png(self):
-        return self.get_png_path() +\
-            "?" + "width=" + str(self.width) +\
-            "&" + "height=" + str(self.height)
+        return f"{self.get_png_path()}?width={self.width}&height={self.height}"
 
     def get_eps(self):
-        return self.get_eps_path() +\
-            "?" + "width=" + str(self.width) +\
-            "&" + "height=" + str(self.height)
+        return f"{self.get_eps_path()}?width={self.width}&height={self.height}"
 
     def get_svg(self):
-        return self.get_svg_path() +\
-            "?" + "width=" + str(self.width) +\
-            "&" + "height=" + str(self.height)
+        return f"{self.get_svg_path()}?width={self.width}&height={self.height}"

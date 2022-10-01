@@ -42,4 +42,3 @@ pex_binary(
         "tmpy:sources",
     ],
 )
-

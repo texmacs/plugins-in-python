@@ -8,24 +8,27 @@
 # It comes WITHOUT ANY WARRANTY WHATSOEVER. For details, see the file LICENSE
 # in the root directory or <http://www.gnu.org/licenses/gpl-3.0.html>.
 
+import os
 import sys
-from subprocess import Popen, PIPE, STDOUT
+from subprocess import PIPE, Popen
+
 from tmpy.graph.graph import Graph
-from tmpy.protocol import *
+from tmpy.protocol import flush_file, flush_verbatim
+
 
 class Graphviz(Graph):
     def __init__(self, name):
         super(Graphviz, self).__init__()
         self.name = name
         self.default_output = "eps"
-    
+
     def greet(self):
         if len(self.message) == 0:
             try:
                 p = Popen([self.name, "-V"], stderr=PIPE)
                 ret, err = p.communicate()
                 # WARN: The Version Info is in stderr
-                if (p.returncode == 0):
+                if p.returncode == 0:
                     self.message = err.decode()
             except OSError:
                 pass
@@ -54,14 +57,14 @@ class Graphviz(Graph):
 
         if os.path.isfile(path):
             os.remove(path)
-        f = open(path, 'wb')
+        f = open(path, "wb")
         p = Popen(cmd_list, stdout=f, stdin=PIPE, stderr=PIPE)
         py_ver = sys.version_info[0]
         if py_ver == 3:
             out, err = p.communicate(input=code.encode())
         else:
             out, err = p.communicate(input=code)
-        if (p.returncode == 0):
-            flush_file (image)
+        if p.returncode == 0:
+            flush_file(image)
         else:
-            flush_verbatim (err.decode())
+            flush_verbatim(err.decode())
