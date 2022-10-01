@@ -32,3 +32,14 @@ pex_binary(
         "tmpy:sources",
     ],
 )
+
+pex_binary(
+    name="graphviz",
+    entry_point="plugins/graphviz.py",
+    dependencies=[
+        "plugins/graphviz.py",
+        "tmpy/graph:sources",
+        "tmpy:sources",
+    ],
+)
+
