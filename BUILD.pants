@@ -1,0 +1,34 @@
+pex_binary(
+    name="pyminimal",
+    entry_point="plugins/pyminimal.py",
+    dependencies=[
+        "plugins/pyminimal.py",
+        "tmpy:sources",
+    ],
+)
+
+pex_binary(
+    name="pyprompt",
+    entry_point="plugins/pyprompt.py",
+    dependencies=[
+        "tmpy:sources",
+    ],
+)
+
+pex_binary(
+    name="pycomplete",
+    entry_point="plugins/pycomplete.py",
+    dependencies=[
+        "plugins/pycomplete.py",
+        "tmpy:sources",
+    ],
+)
+
+pex_binary(
+    name="pymarkup",
+    entry_point="plugins/pymarkup.py",
+    dependencies=[
+        "plugins/pymarkup.py",
+        "tmpy:sources",
+    ],
+)

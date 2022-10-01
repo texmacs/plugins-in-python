@@ -1,0 +1,9 @@
+python_sources(
+    name="sources",
+    sources=["**/*.py"],
+)
+
+pex_binary(
+    name="install",
+    entry_point="install.py",
+)

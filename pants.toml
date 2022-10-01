@@ -1,0 +1,40 @@
+[anonymous-telemetry]
+enabled = false
+
+[GLOBAL]
+pants_version = "2.13.0"
+use_deprecated_directory_cli_args_semantics = false
+use_deprecated_pex_binary_run_semantics = false
+concurrent = true
+
+backend_packages = [
+  "pants.backend.python",
+  "pants.backend.python.lint.docformatter",
+  "pants.backend.python.lint.black",
+  "pants.backend.python.lint.flake8",
+  "pants.backend.python.lint.isort",
+]
+
+[source]
+root_patterns = [
+  "/",
+]
+
+[python-bootstrap]
+search_path = [
+  "/opt/hostedtoolcache/Python/3.10.6/x64/bin",
+  "/opt/homebrew/bin",
+  "/usr/local/bin",
+  "/usr/bin",
+]
+
+[python]
+interpreter_constraints = [">=3.7"]
+enable_resolves = true
+
+
+[isort]
+args = ["--profile black", "--order-by-type"]
+version = "isort==5.10.1"
+lockfile = "3rdparty/python/isort.lock"
+
