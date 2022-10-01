@@ -1,0 +1,4 @@
+.pants.d/
+.pids/
+.DS_Store
+dist/
