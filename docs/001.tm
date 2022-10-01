@@ -1,6 +1,6 @@
 <TeXmacs|2.1.3>
 
-<style|<tuple|generic|british>>
+<style|<tuple|generic|british|doc>>
 
 <\body>
   <doc-data|<doc-title|001: Re-impl the Graphviz
@@ -18,19 +18,23 @@
     <item><slink|https://gitee.com/texmacs/texmacs/tree/v2.1.2/plugins/graphviz>
   </itemize>
 
-  <section|Implementation Notes>
-
-  <\itemize>
-    <item><slink|../plugins/graphviz.py>
-  </itemize>
-
   <section|How to test it?>
+
+  <\shell-code>
+    ./pants run cli:install -- graphviz
+  </shell-code>
+
+  Launch it and test it via <menu|Help|Plugins|Graphviz>.
 
   <section|How much time did you spend on it?>
 
   <\itemize>
     <item>Start time: 2022/10/01 08:30:00 UTC+8
+
+    <item>End time: 2022/10/01 09:13:00 UTC+8
   </itemize>
+
+  About 45 minutes.
 </body>
 
 <\initial>
@@ -43,8 +47,8 @@
   <\collection>
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|2|1>>
-    <associate|auto-3|<tuple|3|1>>
-    <associate|auto-4|<tuple|4|?>>
+    <associate|auto-3|<tuple|2|1>>
+    <associate|auto-4|<tuple|3|?>>
   </collection>
 </references>
 
