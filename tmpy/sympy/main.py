@@ -12,7 +12,7 @@ import sys
 
 from tmpy.capture import CaptureStdout
 from tmpy.completion import complete, parse_complete_command
-from tmpy.postscript import *
+from tmpy.postscript import ps_out
 from tmpy.protocol import (
     DATA_COMMAND,
     flush_latex,
@@ -77,6 +77,6 @@ while True:
     text = "\n".join(lines[:-1])
     try:  # Is it an expression?
         result = eval(text, my_globals)
-    except:
+    except Exception:
         result = CaptureStdout.capture(text, my_globals, "main")
     flush_output(result)
