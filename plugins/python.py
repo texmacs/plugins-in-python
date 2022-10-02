@@ -161,5 +161,5 @@ while True:
         try:  # Is it an expression?
             result = my_eval(text, my_globals)
         except Exception:
-            result = CaptureStdout.capture(text, my_globals, "tm_python")
+            result = CaptureStdout.capture(text, my_globals, "python")
         flush_output(result)

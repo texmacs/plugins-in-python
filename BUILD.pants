@@ -51,3 +51,12 @@ pex_binary(
         "tmpy:sources",
     ],
 )
+
+pex_binary(
+    name="sympy",
+    entry_point="plugins/sympy.py",
+    dependencies=[
+        "plugins/sympy.py",
+        "tmpy:sources",
+    ],
+)
