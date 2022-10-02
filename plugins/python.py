@@ -125,8 +125,7 @@ sys.stdout = os.fdopen(sys.stdout.fileno(), "w")
 # Session start
 ###############################################################################
 flush_verbatim(
-    f"""
-Python { platform.python_version() } [{ sys.executable }]
+    f"""Python { platform.python_version() } [{ sys.executable }]
 Python plugin for TeXmacs.
 Please see the documentation in Help -> Plugins -> Python
 """
