@@ -14,6 +14,7 @@
 
 import ast
 import os
+import platform
 import sys
 from inspect import getsource, getsourcefile
 
@@ -124,9 +125,9 @@ sys.stdout = os.fdopen(sys.stdout.fileno(), "w")
 # Session start
 ###############################################################################
 flush_verbatim(
-    """
-Python { platform.python_version() } [{ sys.executable }] \n
-Python plugin for TeXmacs.\n
+    f"""
+Python { platform.python_version() } [{ sys.executable }]
+Python plugin for TeXmacs.
 Please see the documentation in Help -> Plugins -> Python
 """
 )

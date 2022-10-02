@@ -65,13 +65,14 @@
 (define (python-utf8-command) (string-append (python-command) " -X utf8 "))
 
 (define (python-launcher)
-  (if (url-exists? "$TEXMACS_HOME_PATH/plugins/tmpy")
-      (string-append (python-utf8-command) " \""
+  (if (url-exists? "$TEXMACS_HOME_PATH/plugins/python")
+      (string-append "python3 "
                      (getenv "TEXMACS_HOME_PATH")
-                     "/plugins/tmpy/session/tm_python.py\"")
-      (string-append (python-utf8-command) " \""
+                     "/plugins/python/bin/python.pex")
+      (string-append "python3 "
                      (getenv "TEXMACS_PATH")
-                     "/plugins/tmpy/session/tm_python.py\"")))
+                     "/plugins/python/bin/python.pex")))
+
 
 (plugin-configure python
   (:winpath "python*" ".")
