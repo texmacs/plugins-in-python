@@ -78,5 +78,5 @@ while True:
     try:  # Is it an expression?
         result = eval(text, my_globals)
     except:
-        result = CaptureStdout.capture(text, my_globals, "sympy")
+        result = CaptureStdout.capture(text, my_globals, "main")
     flush_output(result)
