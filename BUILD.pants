@@ -42,3 +42,12 @@ pex_binary(
         "tmpy:sources",
     ],
 )
+
+pex_binary(
+    name="python",
+    entry_point="plugins/python.py",
+    dependencies=[
+        "plugins/python.py",
+        "tmpy:sources",
+    ],
+)
