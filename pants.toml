@@ -32,6 +32,9 @@ search_path = [
 interpreter_constraints = [">=3.7"]
 enable_resolves = true
 
+[python.resolves]
+  sympy_req = "3rdparty/python/sympy.lock"
+  python-default = "3rdparty/python/default.lock"
 
 [isort]
 args = ["--profile black", "--order-by-type"]
