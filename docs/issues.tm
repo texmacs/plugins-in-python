@@ -13,12 +13,12 @@
 
     <item><todo|<slink|004.tm>> Re-implement the xypic plugin
 
-    <item><todo|<slink|003.tm>> Re-implement the Python and Sympy plugins
+    <item><slink|003.tm> Re-implement the Python and Sympy plugins
 
     <item><todo|<slink|002.tm>> Skip CI when <shell|docs> is the only changed
     directory
 
-    <item><todo|<slink|001.tm>> Re-implement the Graphviz plugin
+    <item><slink|001.tm> Re-implement the Graphviz plugin
   </itemize>
 </body>
 
