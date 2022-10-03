@@ -1,4 +1,11 @@
 # GNU TeXmacs plugins implemented in Python
+
+Real world plugins:
++ [python](plugins/python)
++ [graphviz](plugins/graphviz)
++ [sympy](plugins/sympy)
+
+Demo plugins:
 + `pyminimal`: minimal demo plugin
 + `pycomplete`: demo plugin for completion
 + `pymarkup`: demo plugin for GNU TeXmacs markup
@@ -24,3 +31,6 @@ Pull requests can be made against:
 + [Github](https://github.com/texmacs/plugins-in-python/pulls)
 + [Gitee](https://gitee.com/texmacs/plugins-in-python/pulls)
 + More to come ...
+
+## LICENSE
+![](http://www.gnu.org/graphics/lgplv3-147x51.png)
