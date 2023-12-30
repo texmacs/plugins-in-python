@@ -20,7 +20,12 @@ bin/lint
 bin/format
 
 # For other GNU TeXmacs distributions like Mogan Research
-TEXMACS_HOME_PATH=~/.Xmacs ./pants run cli:install -- pymarkup
+# you can make a symbol link
+
+# macOS
+ln -s $HOME/.TeXmacs/plugins $HOME/Library/Application\ Support/XmacsLabs/
+# Linux
+ln -s $HOME/.TeXmacs/plugins $HOME/.local/share/XmacsLabs/
 ```
 ## Contributing
 Please report bugs to the GNU TeXmacs [forum](http://forum.texmacs.cn/c/devel/pluginsinpython) for this project.

@@ -102,7 +102,9 @@ class Graph(object):
     def get_tmp_dir(self):
         dir = "graph_" + self.name + "_" + str(os.getpid())
         if platform.system() == "Windows":
-            return os.getenv("TEXMACS_HOME_PATH") + "\\system\\tmp\\" + dir + "\\"
+            return (
+                os.getenv("TEXMACS_HOME_PATH") + "\\system\\tmp\\" + dir + "\\"
+            )
         else:
             return os.getenv("TEXMACS_HOME_PATH") + "/system/tmp/" + dir + "/"
 

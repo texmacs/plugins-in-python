@@ -72,14 +72,18 @@ def compile_help(text):
         out["help"] = 'No help for "%s": %s' % (text, e)
 
     try:
-        out["src"] = eval("getsource(%s)" % text, my_globals, {"getsource": getsource})
+        out["src"] = eval(
+            "getsource(%s)" % text, my_globals, {"getsource": getsource}
+        )
     except Exception as e:
         out["src"] = 'No code available for "%s": %s' % (text, e)
 
     try:
         # Todo: strip docstring from code
         out["file"] = eval(
-            "getsourcefile(%s)" % text, my_globals, {"getsourcefile": getsourcefile}
+            "getsourcefile(%s)" % text,
+            my_globals,
+            {"getsourcefile": getsourcefile},
         )
     except Exception as e:
         out["file"] = 'Unable to access the code for "%s": %s' % (text, e)
@@ -145,7 +149,8 @@ while True:
         if len(line) > 1:
             out = compile_help(line[:-1])
             flush_command(
-                "(tmpy-open-help %s %s %s)" % (out["help"], out["src"], out["file"])
+                "(tmpy-open-help %s %s %s)"
+                % (out["help"], out["src"], out["file"])
             )
         else:
             flush_verbatim('Type a name before the "?" to see the help')

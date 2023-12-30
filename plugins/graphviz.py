@@ -8,13 +8,23 @@
 # It comes WITHOUT ANY WARRANTY WHATSOEVER. For details, see the file LICENSE
 # in the root directory or <http://www.gnu.org/licenses/gpl-3.0.html>.
 
-from tmpy.graph.graphviz import Graphviz
 from tmpy.protocol import DATA_COMMAND, flush_prompt, flush_verbatim
+
+from tmpy.graph.graphviz import Graphviz
 
 graphs = list(
     map(
         lambda x: Graphviz(x),
-        ["dot", "neato", "twopi", "circo", "fdp", "sfdp", "patchwork", "osage"],
+        [
+            "dot",
+            "neato",
+            "twopi",
+            "circo",
+            "fdp",
+            "sfdp",
+            "patchwork",
+            "osage",
+        ],
     )
 )
 graph_names = list(map(lambda x: x.name, graphs))
@@ -62,7 +72,9 @@ while True:
         if text.startswith("%"):
             unigraph(text)
         elif text == "help":
-            flush_verbatim("[help, " + ", ".join(str(x) for x in graph_names) + "]\n")
+            flush_verbatim(
+                "[help, " + ", ".join(str(x) for x in graph_names) + "]\n"
+            )
             current.greet()
         elif text in graph_names:
             current = graphs[graph_names.index(text)]

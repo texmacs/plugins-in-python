@@ -2,7 +2,7 @@ pex_binary(
     name="pyminimal",
     entry_point="plugins/pyminimal.py",
     dependencies=[
-        "plugins/pyminimal.py",
+        "plugins/pyminimal.py:sources",
         "tmpy:sources",
     ],
 )
@@ -57,4 +57,10 @@ pex_binary(
     entry_point="tmpy/sympy/main.py",
     dependencies=["tmpy:sources", "tmpy/sympy:sources"],
     resolve="sympy_req",
+)
+
+python_requirement(
+    name="black",
+    requirements=["black==22.1.0", "click<8.1"],
+    resolve="black",
 )

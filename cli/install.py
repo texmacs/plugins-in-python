@@ -22,8 +22,8 @@ def install(name):
         print(f"Removing existing {str(plugin)}")
         shutil.rmtree(str(plugin))
 
-    print(f"Packaging: ./pants package //:{name}")
-    subprocess.run(["./pants", "package", f"//:{name}"])
+    print(f"Packaging: pants package //:{name}")
+    subprocess.run(["pants", "package", f"//:{name}"])
 
     print(f"Installing: {str(plugin)}")
     shutil.copytree(f"plugins/{name}", str(plugin))
