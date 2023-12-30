@@ -53,7 +53,8 @@ def flush_output(data):
 # Session start
 ###############################################################################
 flush_verbatim(
-    "SymPy %s under Python %s\n" % (sympy.__version__, platform.python_version())
+    "SymPy %s under Python %s\n"
+    % (sympy.__version__, platform.python_version())
 )
 flush_verbatim("Please see the documentation in Help -> Plugins -> SymPy\n")
 flush_prompt(">>> ")

@@ -7,10 +7,7 @@ concurrent = true
 
 backend_packages = [
   "pants.backend.python",
-  "pants.backend.python.lint.docformatter",
   "pants.backend.python.lint.black",
-  "pants.backend.python.lint.flake8",
-  "pants.backend.python.lint.isort",
 ]
 
 [source]
@@ -33,8 +30,8 @@ enable_resolves = true
 [python.resolves]
   sympy_req = "3rdparty/python/sympy.lock"
   python-default = "3rdparty/python/default.lock"
-  isort = "3rdparty/python/isort.lock"
+  black= "3rdparty/python/black.lock"
 
-[isort]
-args = ["--profile black", "--order-by-type"]
-install_from_resolve = "isort"
+[black]
+  install_from_resolve = "black"
+  requirements= ["//:black"]

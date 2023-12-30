@@ -58,3 +58,9 @@ pex_binary(
     dependencies=["tmpy:sources", "tmpy/sympy:sources"],
     resolve="sympy_req",
 )
+
+python_requirement(
+    name="black",
+    requirements=["black==22.1.0", "click<8.1"],
+    resolve="black",
+)

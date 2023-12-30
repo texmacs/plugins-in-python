@@ -38,10 +38,16 @@ def find_completion_candidates(cmpl_str, my_globals):
 
     if py_ver == 3:
         haystack = (
-            list(my_globals.keys()) + dir(my_globals["__builtins__"]) + keyword.kwlist
+            list(my_globals.keys())
+            + dir(my_globals["__builtins__"])
+            + keyword.kwlist
         )
     else:
-        haystack = my_globals.keys() + dir(my_globals["__builtins__"]) + keyword.kwlist
+        haystack = (
+            my_globals.keys()
+            + dir(my_globals["__builtins__"])
+            + keyword.kwlist
+        )
 
     dot = cmpl_str.rfind(".")
     offset = None
@@ -72,9 +78,13 @@ def find_completion_candidates(cmpl_str, my_globals):
                 haystack = do_module_hierarchy(type(mod_name), r_str)
 
     if py_ver == 3:
-        return offset, [x for x in haystack if x.find(cmpl_str[dot + 1 :]) == 0]
+        return offset, [
+            x for x in haystack if x.find(cmpl_str[dot + 1 :]) == 0
+        ]
     else:
-        return offset, filter(lambda x: x.find(cmpl_str[dot + 1 :]) == 0, haystack)
+        return offset, filter(
+            lambda x: x.find(cmpl_str[dot + 1 :]) == 0, haystack
+        )
 
 
 def name_char(c):

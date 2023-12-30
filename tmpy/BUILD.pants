@@ -1,1 +1,3 @@
-python_sources(name="sources", resolve=parametrize("sympy_req", "python-default"))
+python_sources(
+    name="sources", resolve=parametrize("sympy_req", "python-default")
+)
