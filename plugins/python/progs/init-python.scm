@@ -67,12 +67,15 @@
 (define (python-launcher)
   (if (url-exists? "$TEXMACS_HOME_PATH/plugins/python")
       (string-append "python3 "
-                     (getenv "TEXMACS_HOME_PATH")
-                     "/plugins/python/bin/python.pex")
+       (string-quote
+        (url->string
+         (string->url
+          "$TEXMACS_HOME_PATH/plugins/python/bin/python.pex"))))
       (string-append "python3 "
-                     (getenv "TEXMACS_PATH")
-                     "/plugins/python/bin/python.pex")))
-
+       (string-quote
+        (url->string
+         (string->url
+          "$TEXMACS_PATH/plugins/python/bin/python.pex"))))))
 
 (plugin-configure python
   (:winpath "python*" ".")
