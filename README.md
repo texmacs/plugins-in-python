@@ -13,13 +13,13 @@ Demo plugins:
 
 ## Cheatsheat
 ``` bash
-./pants run cli:install -- pyminimal
+pants run cli:install -- pyminimal
 
 bin/lint
 
 bin/format
 
-# For other GNU TeXmacs distributions like Mogan Editor
+# For other GNU TeXmacs distributions like Mogan Research
 TEXMACS_HOME_PATH=~/.Xmacs ./pants run cli:install -- pymarkup
 ```
 ## Contributing
