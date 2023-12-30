@@ -1,4 +1,4 @@
 python_sources(
     name="sources",
-    resolve="sympy_req",
+    resolve=parametrize("sympy_req", "python-default")
 )

@@ -2,7 +2,7 @@ pex_binary(
     name="pyminimal",
     entry_point="plugins/pyminimal.py",
     dependencies=[
-        "plugins/pyminimal.py",
+        "plugins/pyminimal.py:sources",
         "tmpy:sources",
     ],
 )
