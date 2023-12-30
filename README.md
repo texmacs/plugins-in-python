@@ -14,6 +14,7 @@ Demo plugins:
 ## Cheatsheat
 ``` bash
 pants run cli:install -- pyminimal
+pants run cli:install -- pyminimal win
 
 bin/lint
 
