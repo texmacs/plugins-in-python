@@ -12,8 +12,9 @@ import os
 import sys
 from subprocess import PIPE, Popen
 
-from tmpy.graph.graph import Graph
 from tmpy.protocol import flush_file, flush_verbatim
+
+from tmpy.graph.graph import Graph
 
 
 class Graphviz(Graph):

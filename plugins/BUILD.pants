@@ -4,7 +4,4 @@ python_requirement(
     resolve="sympy_req",
 )
 
-python_sources(
-    name="sources",
-    resolve="python-default"
-)
+python_sources(name="sources", resolve="python-default")
