@@ -20,7 +20,7 @@ root_patterns = [
 
 [python-bootstrap]
 search_path = [
-  "/opt/hostedtoolcache/Python/3.10.6/x64/bin",
+  "/opt/hostedtoolcache/Python/3.10.13/x64/bin",
   "/opt/homebrew/bin",
   "/usr/local/bin",
   "/usr/bin",
