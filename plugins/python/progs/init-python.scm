@@ -13,7 +13,10 @@
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(use-modules (dynamic session-edit) (dynamic program-edit))
+(use-modules
+  (dynamic session-edit)
+  (dynamic program-edit)
+  (binary python3))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -62,26 +65,24 @@
     (with s (texmacs->code (stree->tree u) "SourceCode")
       (string-append  s  "\n<EOF>\n"))))
 
-(define (python-utf8-command) (string-append (python-command) " -X utf8 "))
+(define (python-utf8-command)
+  (string-append (url->system (find-binary-python3)) " -X utf8 "))
 
 (define (python-launcher)
   (if (url-exists? "$TEXMACS_HOME_PATH/plugins/python")
-      (string-append "python3 "
+      (string-append (python-utf8-command)
        (string-quote
         (url->string
          (string->url
           "$TEXMACS_HOME_PATH/plugins/python/bin/python.pex"))))
-      (string-append "python3 "
+      (string-append (python-utf8-command)
        (string-quote
         (url->string
          (string->url
           "$TEXMACS_PATH/plugins/python/bin/python.pex"))))))
 
 (plugin-configure python
-  (:winpath "python*" ".")
-  (:winpath "Python*" ".")
-  (:winpath "Python/Python*" ".")
-  (:require (python-command))
+  (:require (has-binary-python3?))
   (:launch ,(python-launcher))
   (:tab-completion #t)
   (:serializer ,python-serialize)
