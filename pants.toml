@@ -2,7 +2,7 @@
 enabled = false
 
 [GLOBAL]
-pants_version = "2.18.1"
+pants_version = "2.19.1"
 concurrent = true
 
 backend_packages = [
@@ -17,7 +17,7 @@ root_patterns = [
 
 [python-bootstrap]
 search_path = [
-  "/opt/hostedtoolcache/Python/3.10.13/x64/bin",
+  "/opt/hostedtoolcache/Python/3.10.14/x64/bin",
   "/opt/homebrew/bin",
   "/usr/local/bin",
   "/usr/bin",
