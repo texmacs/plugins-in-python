@@ -59,6 +59,15 @@ pex_binary(
     resolve="sympy_req",
 )
 
+pex_binary(
+    name="tikz",
+    entry_point="plugins/tikz.py",
+    dependencies=[
+        "tmpy/graph:sources",
+        "tmpy:sources",
+    ],
+)
+
 python_requirement(
     name="black",
     requirements=["black==22.1.0", "click<8.1"],
