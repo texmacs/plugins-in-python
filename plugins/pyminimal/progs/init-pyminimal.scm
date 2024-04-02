@@ -11,20 +11,26 @@
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(use-modules (binary python3))
+
 (define (python-launcher)
   (if (url-exists? "$TEXMACS_HOME_PATH/plugins/pyminimal")
-      (string-append "python3 "
-       (string-quote
-        (url->string
-         (string->url
-          "$TEXMACS_HOME_PATH/plugins/pyminimal/bin/pyminimal.pex"))))
-      (string-append "python3 "
-       (string-quote
-        (url->string
-         (string->url
-          "$TEXMACS_PATH/plugins/pyminimal/bin/pyminimal.pex"))))))
+      (string-append
+        (url->system (find-binary-python3))
+        " "
+        (string-quote
+         (url->string
+          (string->url
+           "$TEXMACS_HOME_PATH/plugins/pyminimal/bin/pyminimal.pex"))))
+      (string-append
+        (url->system (find-binary-python3))
+        " "
+        (string-quote
+         (url->string
+          (string->url
+           "$TEXMACS_PATH/plugins/pyminimal/bin/pyminimal.pex"))))))
 
 (plugin-configure pyminimal
-  (:require (url-exists-in-path? "python3"))
+  (:require (has-binary-python3?))
   (:launch ,(python-launcher))
   (:session "PyMinimal"))
