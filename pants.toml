@@ -2,7 +2,7 @@
 enabled = false
 
 [GLOBAL]
-pants_version = "2.18.1"
+pants_version = "2.19.1"
 concurrent = true
 
 backend_packages = [
