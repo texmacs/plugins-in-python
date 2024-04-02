@@ -1,4 +1,5 @@
 # GNU TeXmacs plugins implemented in Python
+ [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 Real world plugins:
 + [python](plugins/python)
@@ -38,5 +39,3 @@ Pull requests can be made against:
 + [Gitee](https://gitee.com/texmacs/plugins-in-python/pulls)
 + More to come ...
 
-## LICENSE
-![](http://www.gnu.org/graphics/lgplv3-147x51.png)
