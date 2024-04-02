@@ -22,7 +22,7 @@ def install_win(name):
     pex = binary.joinpath(name + ".pex")
     entry = binary.joinpath("plugins").joinpath(name + ".py")
     os.chdir(binary)
-    subprocess.call(["tar", "xzvf", pex])
+    subprocess.call(["unzip", pex])
     os.remove(binary.joinpath("PEX-INFO"))
     os.remove(binary.joinpath("__main__.py"))
     os.remove(pex)
